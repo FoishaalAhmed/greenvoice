@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -23,6 +24,7 @@ Route::group(['as' => 'admin.', 'middleware' => ['admin', 'auth']], function () 
     Route::resource('programs', ProgramController::class)->except(['show']);
     Route::resource('projects', ProjectController::class)->except(['show']);
     Route::resource('pages', PageController::class)->except(['show']);
+    Route::resource('blogs', BlogController::class)->except(['show']);
     Route::resource('faqs', FaqController::class)->except(['create', 'edit', 'show']);
     Route::resource('categories', CategoryController::class)->except(['create', 'edit', 'show']);
 });

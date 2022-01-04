@@ -1,14 +1,14 @@
 $(function() {
   'use strict';
 
-  if($('#datePickerExample').length) {
+  if($('#datePickerExample, #datePickerExample2').length) {
     var date = new Date();
     var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    $('#datePickerExample').datepicker({
+    $('#datePickerExample, #datePickerExample2').datepicker({
       format: "mm/dd/yyyy",
       todayHighlight: true,
       autoclose: true
     });
-    $('#datePickerExample').datepicker('setDate', today);
+    $('#datePickerExample, #datePickerExample2').datepicker('setDate', today);
   }
 });

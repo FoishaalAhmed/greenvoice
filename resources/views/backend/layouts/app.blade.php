@@ -35,6 +35,7 @@
     <link href="{{ asset('public/backend/assets/plugins/datatables-net/dataTables.bootstrap4.css') }}"
         rel="stylesheet" />
     <link href="{{ asset('public/backend/assets/plugins/select2/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('public/backend/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
 
     <!-- common css -->
     <link href="{{ asset('public/backend/assets/css/app.css') }}" rel="stylesheet" />
@@ -141,6 +142,7 @@
     <script src="{{ asset('public/backend/assets/plugins/datatables-net/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('public/backend/assets/plugins/datatables-net-bs4/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('public/backend/assets/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('public/backend/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
 
     <!-- end plugin js -->
 
@@ -152,6 +154,7 @@
     <script src="{{ asset('public/backend/assets/js/datepicker.js') }}"></script>
     <script src="{{ asset('public/backend/assets/js/data-table.js') }}"></script>
     <script src="{{ asset('public/backend/assets/js/select2.js') }}"></script>
+    <script src="{{ asset('public/backend/assets/js/datepicker.js') }}"></script>
     <script src="https://cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
 
     <script>
