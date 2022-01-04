@@ -1,0 +1,224 @@
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .body {
+            /* */
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Roboto', sans-serif;
+        }
+        /* .hr-style {
+    border: 1px solid black;
+    width: 1200px;
+    border-bottom: none;
+} */
+        
+        .sescton-title h3 {
+            font-weight: bolder;
+            margin-bottom: 0;
+        }
+        
+        .sescton-title {
+            padding: 0.5% 0;
+        }
+        
+        .hader {
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 1350px 650px;
+        }
+        
+        .banner-cointainer {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .banner-containes h2 {
+            padding-top: 180px;
+            padding-right: 350px;
+        }
+        
+        .banner-cointainer h2 {
+            background-color: rgba(0, 0, 0, 0.391);
+            padding: 8px;
+            font-family: 'Times New Roman', Times, serif;
+            border-radius: 3px;
+        }
+        /* .banner-cointainer p {
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+} */
+        
+        .navbar {
+            padding: 1% 2%;
+            background-color: rgba(0, 0, 0, 0.734);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /*   height: 17%; */
+            z-index: 2;
+        }
+        /* .navbar:hover {
+    padding: 1% 2%;
+    background-color: rgba(0, 0, 0, 0.3);
+} */
+        
+        .nav-icon {
+            color: yellow;
+        }
+        
+        .nav-link {
+            color: white;
+            /*  margin: 10px; */
+            border-radius: 5px;
+            transition: .4s;
+            padding: 7px;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(241, 241, 241, 0.4);
+            outline-offset: white;
+            color: yellow;
+            transform: scale(1.1);
+            padding: 7px;
+        }
+        
+        .navbar-brand {
+            /*     padding-right: 220px;
+ */
+        }
+        
+        .banner-containes h1 {
+            font-size: 3.5rem;
+            /*background-color: rgba(0, 0, 0, 0.3);
+    */
+            font-family: 'Handlee', cursive;
+            padding: 10px 20px;
+        }
+        
+        .banner-containes p {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /*hader end*/
+        
+        .card {
+            border: 1px;
+            /* border-radius: 5px; */
+            padding: 55px;
+            /*  margin: 20px 0; */
+            transition: .4s;
+            background-color: #EFEFEE;
+        }
+        
+        .card-img-top {
+            /*     padding: 15px;
+ */
+            font-size: 25px;
+        }
+        
+        .div {
+            text-align: center;
+            padding-top: 250px;
+            padding-left: 50px;
+        }
+        
+        .linkk a {
+            padding-bottom: 50px;
+            font-size: 19px;
+            color: lightsalmon;
+            padding-top: 20px;
+        }
+        
+        .linkk {
+            padding-left: 30px;
+            padding-top: 20px;
+        }
+        
+        .linkk u {
+            color: lightsalmon;
+        }
+        /* goole capture */
+        
+        .fb9 {
+            border: 1px solid #3366FF;
+            background-color: #B3C6FF;
+            width: 150px;
+            height: 30px;
+        }
+        
+        .f-control {
+            width: 25%;
+            padding: 7px;
+        }
+        
+        .f-con {
+            width: 25%;
+        }
+        /* 
+.form-control {
+    width: 25%;
+} */
+        
+        .cc {
+            position: absolute;
+            margin-right: 90px;
+        }
+        
+        .dropdown-menu {
+            background-color: rgba(0, 0, 0, 0.645);
+        }
+        
+        .dropdown-item {
+            color: white;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .bbbb p {
+                text-align: center;
+            }
+        }
+        /* img */
+        /*  */
+        
+        @media only screen and (min-width: 600px) {
+            .bbbb p {
+                text-align: justify;
+            }
+        }
+        
+        @media only screen and (min-width: 600px) {
+            .navbar {
+                padding: 1% 2%;
+                background-color: rgba(0, 0, 0, 0.734);
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 12%;
+                z-index: 2;
+            }
+        }
+        
+        a {
+            color: rgb(211, 35, 35);
+        }
+        
+        a:hover {
+            color: rgb(211, 35, 35);
+        }
+        
+        u {
+            color: rgb(211, 35, 35);
+        }
+        
+        button {
+            background-color: rgb(24, 157, 24);
+        }

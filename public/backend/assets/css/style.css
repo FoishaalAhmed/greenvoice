@@ -1,0 +1,7 @@
+.buy-now-wrapper {
+	bottom: 30px;
+	position: fixed;
+	right: 35px;
+	z-index: 99999;
+	display: none !important;
+}

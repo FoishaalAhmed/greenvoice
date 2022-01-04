@@ -1,24 +1,26 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProgramController;
+use App\Http\Controllers\Frontend\ProjectController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [HomeController::class, 'index']);
+Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+Route::get('programs', [ProgramController::class, 'index'])->name('programs');
+Route::get('programs/{id}/{slug}', [ProgramController::class, 'show'])->name('programs.show');
+Route::get('projects', [ProjectController::class, 'index'])->name('projects');
+Route::get('projects/{id}/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::view('profile', 'backend.profile')->name('profile');
+    Route::post('photo-update', [ProfileController::class, 'photo'])->name('profile.photo');
+    Route::post('password-update', [ProfileController::class, 'password'])->name('profile.password');
+    Route::post('info-update', [ProfileController::class, 'info'])->name('profile.info');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

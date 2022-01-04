@@ -1,60 +1,56 @@
-@extends('auth.layout')
-@section('title', 'Login')
-@section('authContent')
-    <div class="form-container outer">
-        <div class="form-form">
-            <div class="form-form-wrap">
-                <div class="form-container">
-                    <div class="form-content">
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+        </x-slot>
 
-                        <h1 class="">{{ __('Sign In') }}</h1>
-                        <p class="">{{ __('Log in to your account to continue.') }}</p>
-                        @include('includes.error')
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
-                        <form class="text-left" class="{{ route('login') }}" method="POST">
-                            @csrf
-                            <div class="form">
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                                <div id="username-field" class="field-wrapper input">
-                                    <label for="username">{{ __('Email') }}</label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <input id="username" name="email" type="email" class="form-control"
-                                        placeholder="e.g user@gmail.com">
-                                </div>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-                                <div id="password-field" class="field-wrapper input mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="password">{{ __('PASSWORD') }}</label>
-                                        <a href="{{ route('password.request') }}" class="forgot-pass-link">{{ __('Forgot Password?') }}</a>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-lock">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                    <input id="password" name="password" type="password" class="form-control"
-                                        placeholder="Password">
-                                </div>
-                                <div class="d-sm-flex justify-content-between">
-                                    <div class="field-wrapper">
-                                        <button type="submit" class="btn btn-primary" value="">{{ __('Log In') }}</button>
-                                    </div>
-                                </div>
+            <!-- Email Address -->
+            <div>
+                <x-label for="email" :value="__('Email')" />
 
-                                <p class="signup-link">{{ __('Not registered ?') }} <a href="{{ route('register') }}">{{ __('Create an account') }}</a></p>
-
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
-        </div>
-    </div>
-@endsection
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Password')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="current-password" />
+            </div>
+
+            <!-- Remember Me -->
+            <div class="block mt-4">
+                <label for="remember_me" class="inline-flex items-center">
+                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+
+                <x-button class="ml-3">
+                    {{ __('Log in') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>

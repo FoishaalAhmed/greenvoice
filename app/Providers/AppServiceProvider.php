@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Contact;
+use App\Models\Slider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $slider = Slider::latest()->first();
+        $contact = Contact::first();
+
+        view()->share(['slider' => $slider, 'contact' => $contact]);
     }
 }

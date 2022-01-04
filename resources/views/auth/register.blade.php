@@ -1,109 +1,65 @@
-@extends('auth.layout')
-@section('title', 'Registration')
-@section('authContent')
-    <div class="form-container outer">
-        <div class="form-form">
-            <div class="form-form-wrap">
-                <div class="form-container">
-                    <div class="form-content">
+<x-guest-layout>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
+        </x-slot>
 
-                        <h1 class="">{{ __('Register') }}</h1>
-                        <p class="signup-link register">{{ __('Already have an account?') }} <a
-                                href="{{ route('login') }}">{{ __('Log in') }}</a>
-                        </p>
-                        @include('includes.error')
-                        <form class="text-left" method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="form">
+        <!-- Validation Errors -->
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-                                <div id="username-field" class="field-wrapper input">
-                                    <label for="username">{{ __('NAME') }}</label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <input id="username" name="name" type="text" class="form-control"
-                                        placeholder="{{ __('Name') }}">
-                                </div>
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 
-                                <div id="email-field" class="field-wrapper input">
-                                    <label for="email">{{ __('E-MAIL') }}</label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-at-sign register">
-                                        <circle cx="12" cy="12" r="4"></circle>
-                                        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
-                                    </svg>
-                                    <input id="email" name="email" type="text" value="" class="form-control"
-                                        placeholder="{{ __('E-mail') }}">
-                                </div>
+            <!-- Name -->
+            <div>
+                <x-label for="name" :value="__('Name')" />
 
-                                <div id="username-field" class="field-wrapper input">
-                                    <label for="username">{{ __('Phone') }}</label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    <input id="username" name="phone" type="text" class="form-control"
-                                        placeholder="{{ __('Phone') }}">
-                                </div>
-
-                                <div id="password-field" class="field-wrapper input mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="password">{{ __('PASSWORD') }}</label>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-lock">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                    <input id="password" name="password" type="password" class="form-control"
-                                        placeholder="{{ __('Password') }}">
-                                </div>
-
-                                <div id="password-field" class="field-wrapper input mb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <label for="password">{{ __('CONFIRM PASSWORD') }}</label>
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-lock">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                    </svg>
-                                    <input id="password" name="password_confirmation" type="password" class="form-control"
-                                        placeholder="{{ __('Confirm Password') }}">
-                                </div>
-
-                                <div class="field-wrapper terms_condition">
-                                    <div class="n-chk">
-                                        <label class="new-control new-checkbox checkbox-primary">
-                                            <input type="checkbox" class="new-control-input">
-                                            <span class="new-control-indicator"></span><span>{{ __('I agree to the') }}
-                                                <a href="javascript:void(0);"> {{ __('terms and conditions') }}
-                                                </a></span>
-                                        </label>
-                                    </div>
-
-                                </div>
-
-                                <div class="d-sm-flex justify-content-between">
-                                    <div class="field-wrapper">
-                                        <button type="submit" class="btn btn-primary"
-                                            value="">{{ __('Get Started!') }}</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
-        </div>
-    </div>
-@endsection
+
+            <!-- Email Address -->
+            <div class="mt-4">
+                <x-label for="email" :value="__('Email')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="email" :value="__('Email')" />
+
+                <x-input id="email" class="block mt-1 w-full" type="text" name="phone" :value="old('email')" required />
+            </div>
+
+            <!-- Password -->
+            <div class="mt-4">
+                <x-label for="password" :value="__('Password')" />
+
+                <x-input id="password" class="block mt-1 w-full"
+                                type="password"
+                                name="password"
+                                required autocomplete="new-password" />
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mt-4">
+                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+
+                <x-input id="password_confirmation" class="block mt-1 w-full"
+                                type="password"
+                                name="password_confirmation" required />
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
+
+                <x-button class="ml-4">
+                    {{ __('Register') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
+</x-guest-layout>
