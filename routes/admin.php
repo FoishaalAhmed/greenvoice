@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ReportCategoryController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
 
@@ -28,4 +29,5 @@ Route::group(['as' => 'admin.', 'middleware' => ['admin', 'auth']], function () 
     Route::resource('blogs', BlogController::class)->except(['show']);
     Route::resource('faqs', FaqController::class)->except(['create', 'edit', 'show']);
     Route::resource('report-categories', ReportCategoryController::class)->except(['create', 'edit', 'show']);
+    Route::resource('reports', ReportController::class)->except(['show']);
 });

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectRequest extends FormRequest
+class ReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,30 +22,20 @@ class ProjectRequest extends FormRequest
      * @return array
      */
     public function rules()
-    { 
+    {
         $rules = [
-
-            'photo'  => 'mimes:jpeg,jpg,png,gif,webp|max:1000|nullable',
-            'detail' => 'required|string',
+            'report_category_id' => 'required|numeric|min:1',
+            'title' => 'required|string|max:255',
         ];
 
         if ($this->getMethod() == 'POST') {
-
             return $rules + [
-
-                'title'    => 'required|string|max:255|unique:projects,title',
-                'slug'    => 'required|string|max:255|unique:projects,slug',
-
+                'file' => 'mimes:pdf,doc,docx|max:5000|required',
             ];
         } else {
-
             return $rules + [
-
-                'title'    => 'required|string|max:255|unique:projects,title,' . $this->project->id,
-                'slug'    => 'required|string|max:255|unique:projects,slug,' . $this->project->id,
-
+                'file' => 'mimes:pdf,doc,docx|max:5000|nullable',
             ];
         }
-        
     }
 }
