@@ -44,9 +44,9 @@
                                 About
                             </a>
                             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item " href="about_spreeha.html">ABOUT Us</a>
-                                <a class="dropdown-item" href="report.html">REPORTS</a>
-                                <a class="dropdown-item" href="{{ route('contacts') }}">CONTEC US</a>
+                                <a class="dropdown-item " href="{{ route('about') }}">ABOUT US</a>
+                                <a class="dropdown-item" href="{{ route('reports') }}">REPORTS</a>
+                                <a class="dropdown-item" href="{{ route('contacts') }}">CONTACT US</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown nav-item">
@@ -65,8 +65,13 @@
                                 Team
                             </a>
                             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Adviser.html">Adviser</a>
-                                <a class="dropdown-item" href="Green-about.html">Greenvoice</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('teams', ['category' => 'Management']) }}">Management</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('teams', ['category' => 'Advisor']) }}">Advisor</a>
+                                <a class="dropdown-item"
+                                    href="{{ route('teams', ['category' => 'Field Staff']) }}">Field Staff</a>
+                                <a class="dropdown-item" href="{{ route('about') }}">Greenvoice</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown nav-item ">
@@ -75,11 +80,11 @@
                                 News
                             </a>
                             <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="newsletter.html">NEWSLETTER</a>
-                                <a class="dropdown-item" href="blog.html">BLOG</a>
+                                <a class="dropdown-item" href="{{ route('newsletters') }}">NEWSLETTER</a>
+                                <a class="dropdown-item" href="{{ route('blogs') }}">BLOG</a>
                             </div>
                         </li>
-                        <li class="nav-item pl-3">
+                        <li class="nav-item pl-3" style="visibility: hidden">
                             <button class="btn btn-lg  mr-3 " onclick="window.open('https:youtube.com')"
                                 class="request-callback">Subscribe</button>
                         </li>
@@ -99,7 +104,7 @@
     </div>
     <br>
     <br>
-    
+
 
     @yield('content')
 
@@ -116,17 +121,18 @@
                 Information: <a href="mailto:webmaster@example.com"> donate@Greenvoice.org</a>.<br><br>
                 <a href="mailto:webmaster@example.com"> Subscribe to Greenvoice Newsletter!</a>.<br><br> --}}
                 <hr>
-                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->facebook }}" role=" button "
-                    data-mdb-ripple-color=" dark "><i class=" fab fa-facebook-f "></i></a>
+                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->facebook }}"
+                    role=" button " data-mdb-ripple-color=" dark "><i class=" fab fa-facebook-f "></i></a>
                 <!-- Twitter -->
                 <a class="btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->twitter }}" role=" button "
                     data-mdb-ripple-color=" dark "><i class=" fab fa-twitter "></i></a>
                 <!-- Instagram -->
-                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->instagram }}" role=" button "
-                    data-mdb-ripple-color=" dark "><i class=" fab fa-instagram "></i></a>
+                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->instagram }}"
+                    role=" button " data-mdb-ripple-color=" dark "><i class=" fab fa-instagram "></i></a>
                 <!-- Linkedin -->
-                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->pinterest }}" role=" button "
-                    data-mdb-ripple-color=" dark "><i class=" fab fa-pinterest "></i></a><br><br> Greenvoice is a
+                <a class=" btn btn-link btn-floating btn-lg text-dark " href="{{ $contact->pinterest }}"
+                    role=" button " data-mdb-ripple-color=" dark "><i class=" fab fa-pinterest "></i></a><br><br>
+                Greenvoice is a
                 non-profit organization | © 2021 Greenvoice
                 <br><br><br>
             </div>
@@ -136,14 +142,14 @@
     <!-- footer end -->
     <!-- bootdtrap js CDN -->
     <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "
-        integrity=" sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN "
-        crossorigin=" anonymous "></script>
+        integrity=" sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin=" anonymous ">
+    </script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "
-        integrity=" sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q "
-        crossorigin=" anonymous "></script>
+        integrity=" sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin=" anonymous ">
+    </script>
     <script src=" https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js "
-        integrity=" sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
-        crossorigin=" anonymous "></script>
+        integrity=" sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl " crossorigin=" anonymous ">
+    </script>
 </body>
 
 </html>
