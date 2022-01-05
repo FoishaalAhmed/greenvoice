@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProgramController;
@@ -14,6 +15,8 @@ Route::get('programs', [ProgramController::class, 'index'])->name('programs');
 Route::get('programs/{id}/{slug}', [ProgramController::class, 'show'])->name('programs.show');
 Route::get('projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('projects/{id}/{slug}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('blogs', [BlogController::class, 'index'])->name('blogs');
+Route::get('blogs/{id}/{slug}', [BlogController::class, 'show'])->name('blogs.show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
