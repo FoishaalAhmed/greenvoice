@@ -13,8 +13,13 @@ class ReportCategory extends Model
         'name',
     ];
 
+    public function reports()
+    {
+        return $this->hasMany('App\Models\Report')->latest();
+    }
+
     public static $validateRule = [
-        'name' => 'required|string|max: 255| unique:report_categories,name',
+        'name' => 'required|string|max: 255|unique:report_categories,name',
     ];
 
     public function storeCategory(Object $request)

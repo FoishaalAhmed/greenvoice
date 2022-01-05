@@ -3,9 +3,11 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ExtraController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\ProjectController;
+use App\Http\Controllers\Frontend\TeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +19,10 @@ Route::get('projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('projects/{id}/{slug}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('blogs', [BlogController::class, 'index'])->name('blogs');
 Route::get('blogs/{id}/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('newsletters', [ExtraController::class, 'newsletter'])->name('newsletters');
+Route::get('reports', [ExtraController::class, 'report'])->name('reports');
+Route::get('about', [ExtraController::class, 'about'])->name('about');
+Route::get('teams', [TeamController::class, 'index'])->name('teams');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
