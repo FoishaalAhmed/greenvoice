@@ -29,7 +29,7 @@
             </div>
         </li>
         <li class="nav-item nav-category">{{ __('General Part') }}</li>
-        
+
         <li class="nav-item @if (request()->is('admin/generals')) {{ 'active' }} @endif">
             <a href="{{ route('admin.generals.index') }}" class="nav-link">
                 <i class="link-icon" data-feather="info"></i>
@@ -54,10 +54,16 @@
                 <span class="link-title">{{ __('Contact') }}</span>
             </a>
         </li>
+        <li class="nav-item @if (request()->is('admin/report-categories')) {{ 'active' }} @endif">
+            <a href="{{ route('admin.report-categories.index') }}" class="nav-link">
+                <i class="link-icon" data-feather="columns"></i>
+                <span class="link-title">{{ __('Report Category') }}</span>
+            </a>
+        </li>
         <li class="nav-item @if (request()->is('admin/programs') || request()->is('admin/programs/*')) {{ 'active' }} @endif">
-            <a class="nav-link" data-bs-toggle="collapse" href="#programControl" role="button" aria-expanded="false"
-                aria-controls="programControl">
-                <i class="link-icon" data-feather="file-text"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#programControl" role="button"
+                aria-expanded="false" aria-controls="programControl">
+                <i class="link-icon" data-feather="slack"></i>
                 <span class="link-title">{{ __('Programs') }}</span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
@@ -75,9 +81,9 @@
             </div>
         </li>
         <li class="nav-item @if (request()->is('admin/projects') || request()->is('admin/projects/*')) {{ 'active' }} @endif">
-            <a class="nav-link" data-bs-toggle="collapse" href="#projectControl" role="button" aria-expanded="false"
-                aria-controls="projectControl">
-                <i class="link-icon" data-feather="file-text"></i>
+            <a class="nav-link" data-bs-toggle="collapse" href="#projectControl" role="button"
+                aria-expanded="false" aria-controls="projectControl">
+                <i class="link-icon" data-feather="settings"></i>
                 <span class="link-title">{{ __('Projects') }}</span>
                 <i class="link-arrow" data-feather="chevron-down"></i>
             </a>
@@ -90,6 +96,26 @@
                     <li class="nav-item">
                         <a href="{{ route('admin.projects.index') }}"
                             class="nav-link @if (request()->is('admin/projects')) {{ 'active' }} @endif">{{ __('All Project') }}</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item @if (request()->is('admin/blogs') || request()->is('admin/blogs/*')) {{ 'active' }} @endif">
+            <a class="nav-link" data-bs-toggle="collapse" href="#blogControl" role="button" aria-expanded="false"
+                aria-controls="blogControl">
+                <i class="link-icon" data-feather="book-open"></i>
+                <span class="link-title">{{ __('Blogs') }}</span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse @if (request()->is('admin/blogs') || request()->is('admin/blogs/*')) {{ 'show' }} @endif" id="blogControl">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.blogs.create') }}"
+                            class="nav-link @if (request()->is('admin/blogs/create')) {{ 'active' }} @endif">{{ __('New Blog') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.blogs.index') }}"
+                            class="nav-link @if (request()->is('admin/blogs')) {{ 'active' }} @endif">{{ __('All Blog') }}</a>
                     </li>
                 </ul>
             </div>
