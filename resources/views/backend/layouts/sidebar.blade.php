@@ -60,6 +60,38 @@
                 <span class="link-title">{{ __('Report Category') }}</span>
             </a>
         </li>
+        <li class="nav-item @if (request()->is('admin/reports')) {{ 'active' }} @endif">
+            <a href="{{ route('admin.reports.index') }}" class="nav-link">
+                <i class="link-icon" data-feather="file-plus"></i>
+                <span class="link-title">{{ __('Report') }}</span>
+            </a>
+        </li>
+        <li class="nav-item @if (request()->is('admin/newsletters')) {{ 'active' }} @endif">
+            <a href="{{ route('admin.newsletters.index') }}" class="nav-link">
+                <i class="link-icon" data-feather="mail"></i>
+                <span class="link-title">{{ __('Newsletter') }}</span>
+            </a>
+        </li>
+        <li class="nav-item @if (request()->is('admin/teams') || request()->is('admin/teams/*')) {{ 'active' }} @endif">
+            <a class="nav-link" data-bs-toggle="collapse" href="#teamControl" role="button"
+                aria-expanded="false" aria-controls="teamControl">
+                <i class="link-icon" data-feather="users"></i>
+                <span class="link-title">{{ __('Teams') }}</span>
+                <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse @if (request()->is('admin/teams') || request()->is('admin/teams/*')) {{ 'show' }} @endif" id="teamControl">
+                <ul class="nav sub-menu">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.teams.create') }}"
+                            class="nav-link @if (request()->is('admin/teams/create')) {{ 'active' }} @endif">{{ __('New Team') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.teams.index') }}"
+                            class="nav-link @if (request()->is('admin/teams')) {{ 'active' }} @endif">{{ __('All Team') }}</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         <li class="nav-item @if (request()->is('admin/programs') || request()->is('admin/programs/*')) {{ 'active' }} @endif">
             <a class="nav-link" data-bs-toggle="collapse" href="#programControl" role="button"
                 aria-expanded="false" aria-controls="programControl">

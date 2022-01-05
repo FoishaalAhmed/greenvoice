@@ -1,17 +1,18 @@
 <?php
 
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GeneralController;
+use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ReportCategoryController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
 
 Route::group(['as' => 'admin.', 'middleware' => ['admin', 'auth']], function () {
@@ -30,4 +31,6 @@ Route::group(['as' => 'admin.', 'middleware' => ['admin', 'auth']], function () 
     Route::resource('faqs', FaqController::class)->except(['create', 'edit', 'show']);
     Route::resource('report-categories', ReportCategoryController::class)->except(['create', 'edit', 'show']);
     Route::resource('reports', ReportController::class)->except(['show']);
+    Route::resource('teams', TeamController::class)->except(['show']);
+    Route::resource('newsletters', NewsletterController::class)->except(['show']);
 });
